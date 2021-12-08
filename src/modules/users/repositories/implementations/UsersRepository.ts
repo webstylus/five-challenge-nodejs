@@ -29,6 +29,8 @@ export class UsersRepository implements IUsersRepository {
     first_name,
     last_name,
   }: IFindUserByFullNameDTO): Promise<User[] | undefined> {
-    return await this.repository.query("SELECT * FROM users WHERE first_name = $1 AND last_name = $2", [first_name, last_name]); 
+    return this.repository.query(
+      "SELECT * FROM users WHERE first_name = $1 AND last_name = $2", [first_name, last_name]
+      ); 
   }
 }
